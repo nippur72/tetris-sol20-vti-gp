@@ -9,12 +9,15 @@ This is my Tetris port for the following 8-bit computers:
 
 (*) work in progress
 
-The source code is based on my previous Tetris ports I wrote for: Laser 310/VZ200, 
+The source code is based on my previous Tetris that I wrote for Laser 310/VZ200, 
 Laser 500 and Apple1+TMS9918 video card. 
 
-Released under the MIT license
-
 ## Running on the SOL-20
+
+From the `out` folder:
+- `tetris_sol20.com` is the binary executable that can be loaded at address 0100h (it can be also exectued within CP/M as a normal .COM file)
+- `tetris_sol20.ent` is a text file that can be typed-in from the SOL monitor. If you use the Solace emulator, load this file ad then type `EXEC 100`.
+
 
 
 
