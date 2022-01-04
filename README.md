@@ -2,7 +2,7 @@
 
 This is my Tetris port for the following 8-bit computers:
 
-- SOL-20 Terminal Computer by Processor Technologies
+- SOL-20 Terminal Computer by Processor Technology corp.
 - (*) Altair 8800 or IMSAI 8080 with PolyMorphic Systems video terminal interface (VTI) board
 - (*) Model T10 by General Processor (an Italian Z80 CP/M system)
 - (*) TRS80 
