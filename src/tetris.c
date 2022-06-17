@@ -14,15 +14,21 @@
 #include <stdlib.h>        // for sprintf, rand
 #include <stdio.h>         //
 
-#define COUNTER_MAX            2000    // the speed counter at level 0
 #define COUNTER_FACTOR         7       // speed decrease factor: speed -= speed / factor
 
 #ifdef GP
-#include "gp_moldel_t10.h"
+#define COUNTER_MAX            2000    // the speed counter at level 0
+#include "gpmodelt.h"
 #endif
 
 #ifdef SOL20
+#define COUNTER_MAX            2000    // the speed counter at level 0
 #include "sol20.h"
+#endif
+
+#ifdef TRS80
+#define COUNTER_MAX            1000    // the speed counter at level 0
+#include "trs80.h"
 #endif
 
 #include "draw.h"
@@ -32,23 +38,23 @@
 #define EMPTY_GR_COLOR REVERSE_OFF
 
 byte piece_chars[NUMPIECES+1] = {
-   32, // L
-   32, // J
-   32, // T
-   32, // I
-   32, // O
-   32, // S
-   32, // Z
+   FILLED_GR_CHAR, // L
+   FILLED_GR_CHAR, // J
+   FILLED_GR_CHAR, // T
+   FILLED_GR_CHAR, // I
+   FILLED_GR_CHAR, // O
+   FILLED_GR_CHAR, // S
+   FILLED_GR_CHAR, // Z
    EMPTY_GR_CHAR   // space
 };
 byte piece_colors[NUMPIECES+1] = {
-   REVERSE_ON,      // L (orange in the original tetris)
-   REVERSE_ON,      // J
-   REVERSE_ON,      // T
-   REVERSE_ON,      // I
-   REVERSE_ON,      // O
-   REVERSE_ON,      // S
-   REVERSE_ON,      // Z
+   FILLED_GR_COLOR, // L (orange in the original tetris)
+   FILLED_GR_COLOR, // J
+   FILLED_GR_COLOR, // T
+   FILLED_GR_COLOR, // I
+   FILLED_GR_COLOR, // O
+   FILLED_GR_COLOR, // S
+   FILLED_GR_COLOR, // Z
    EMPTY_GR_COLOR   // empty character
 };
 
@@ -311,6 +317,14 @@ void initGame() {
 }
 
 void main() {
+
+   /*
+   byte *kp = (byte *) SCREEN_ADDRESS;
+   for(int t=0;t<255;t++) {
+      *kp++ = t;
+   }
+   while(!test_key(SCANCODE_RETN));   
+   */
    
    while(1) {
       introScreen();

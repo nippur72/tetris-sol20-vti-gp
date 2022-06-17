@@ -143,7 +143,7 @@ void gameOver() {
    byte flip = 0;
    while(1) {
       flip++;
-      if(test_key(KEY_RETURN)) break;
+      if(test_key(SCANCODE_RETN)) break;
            if(flip <  60 ) color = REVERSE_OFF;
       else if(flip < 120 ) color = REVERSE_ON;
       else flip = 0;

@@ -26,11 +26,16 @@
 #define CRUNCH_CHAR_2   32
 #define CRUNCH_COLOR_2  REVERSE_OFF
 
+#define FILLED_GR_CHAR  32
+#define FILLED_GR_COLOR REVERSE_ON
+
 byte test_key(byte key);
 byte read_keyboard();
 byte player_input();
 byte read_sol20_keyboard_port();
 byte read_sol20_keyboard_status_port();
+
+#define SCANCODE_RETN 0x0d
 
 // test a specific key
 byte test_key(byte key) {

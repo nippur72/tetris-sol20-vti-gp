@@ -41,7 +41,18 @@ void introScreen() {
 
    drawLogo();
 
+   #ifdef TRS80
+   draw_string(21, 9,"for the TRS-80 Model I", REVERSE_OFF);
+   #endif
+
+   #ifdef SOL20
    draw_string(16, 9,"for the SOL-20 Terminal Computer", REVERSE_OFF);
+   #endif
+
+   #ifdef GP
+   draw_string(14, 9,"for the General Processor Model T/08", REVERSE_OFF);
+   #endif
+
    draw_string(16,11,"  by Antonino Porcino, dec 2021", REVERSE_OFF);
 
    print_string(14,13,
@@ -55,10 +66,10 @@ void introScreen() {
    print_string(21,15,"press "ESC_REVERSE_ON" RETURN "ESC_REVERSE_OFF" to start", REVERSE_OFF);
 
    // wait for key released
-   while(test_key(KEY_RETURN));
+   while(test_key(SCANCODE_RETN));
 
    // wait for key press and do the coloured animation   
-   while(!test_key(KEY_RETURN)) {
+   while(!test_key(SCANCODE_RETN)) {
       // TODO music      
       rand();  // extract random numbers, making rand() more "random"
    }

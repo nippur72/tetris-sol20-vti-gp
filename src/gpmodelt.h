@@ -33,6 +33,8 @@ byte read_keyboard();
 byte player_input();
 byte read_gp_keyboard_port();
 
+#define SCANCODE_RETN 0x0d
+
 // test a specific key
 byte test_key(byte key) {
    return read_gp_keyboard_port() == key ? 1 : 0;
