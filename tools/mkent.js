@@ -21,7 +21,7 @@ console.log(s);
 
 function ent_dump(bytes, start) {
    let rows=16;
-   let s=`EN ${start.toString(16)}\r\n`;
+   let s=`EN ${hex(start,4)}\r\n`;
    for(let r=0;r<bytes.length;r+=rows) {
       s+= hex(r+start, 4) + ": ";
       for(let c=0;c<rows;c++) {
@@ -39,6 +39,6 @@ function ent_dump(bytes, start) {
 
 function hex(value, size) {
    if(size === undefined) size = 2;
-   let s = "0000" + value.toString(16);
+   let s = "0000" + value.toString(16).toUpperCase();
    return s.substr(s.length - size);
 }
