@@ -79,3 +79,10 @@ byte player_input() {
    else return 0;
 }
 
+// initialize the status register of the VMD-1 video interface
+INLINE void init_video() {
+   __asm
+   ld a,0x00
+   out (0xfe), a
+   __endasm;
+}

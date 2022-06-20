@@ -318,13 +318,9 @@ void initGame() {
 
 void main() {
 
-   /*
-   byte *kp = (byte *) SCREEN_ADDRESS;
-   for(int t=0;t<255;t++) {
-      *kp++ = t;
-   }
-   while(!test_key(SCANCODE_RETN));   
-   */
+   #ifdef SOL20
+   init_video();
+   #endif
    
    while(1) {
       introScreen();
