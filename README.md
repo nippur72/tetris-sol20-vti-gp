@@ -18,6 +18,15 @@ From the `out` folder:
 - `tetris_sol20.com` is the binary executable that can be loaded at address 0100h (it can be also exectued within CP/M as a normal .COM file)
 - `tetris_sol20.ent` is a text file that can be typed-in from the SOL monitor. If you use the Solace emulator, load this file ad then type `EXEC 100`.
 
+## Running on the TRS-80
+
+On the Real machine:
+- convert .cas to .wav with cas2wav
+- reset the machine, hold BREAK key and go into BASIC
+- type SYSTEM
+- at the "*?" prompt type "." (file name first letter) and ENTER
+- two asterisks should flash top right corner of the screen
+- at the "*?" prompt type "/" to execute
 
 
 
