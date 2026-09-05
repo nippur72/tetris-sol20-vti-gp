@@ -17,18 +17,19 @@
 #define COUNTER_FACTOR         7       // speed decrease factor: speed -= speed / factor
 
 #ifdef GP
-#define COUNTER_MAX            2000    // the speed counter at level 0
 #include "gpmodelt.h"
 #endif
 
 #ifdef SOL20
-#define COUNTER_MAX            2000    // the speed counter at level 0
 #include "sol20.h"
 #endif
 
 #ifdef TRS80
-#define COUNTER_MAX            1000    // the speed counter at level 0
 #include "trs80.h"
+#endif
+
+#ifdef ALTAIR8800
+#include "altair8800.h"
 #endif
 
 #include "draw.h"

@@ -214,7 +214,6 @@ void gr_erasepiece_unmarked(sprite *p) {
             draw_tile((byte)x+1,(byte)y,EMPTY_GR_CHAR,REVERSE_OFF);
          }
       #endif
-      }           
    }
 }
 

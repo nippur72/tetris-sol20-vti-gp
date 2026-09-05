@@ -3,6 +3,8 @@
 #include "types.h"
 #include "keyboard.h"
 
+#define COUNTER_MAX 2000    // the speed counter at level 0
+
 #define SCREEN_WIDTH   64
 #define SCREEN_HEIGHT  16
 #define SCREEN_ADDRESS 0xC000
@@ -27,6 +29,9 @@
 
 #define CRUNCH_CHAR_2   32
 #define CRUNCH_COLOR_2  REVERSE_OFF
+
+#define FILLED_GR_CHAR  32
+#define FILLED_GR_COLOR REVERSE_ON
 
 byte test_key(byte key);
 byte read_keyboard();

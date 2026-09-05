@@ -53,8 +53,16 @@ void introScreen() {
    draw_string(14, 9,"for the General Processor Model T/08", REVERSE_OFF);
    #endif
 
+   #ifdef ALTAIR8800
+   draw_string(22, 9,"for the Altair 8800", REVERSE_OFF);
+   #endif
+
    draw_string(16,11,"  by Antonino Porcino, dec 2021", REVERSE_OFF);
 
+   #ifdef ALTAIR8800
+   print_string(23,13,"Move: use joystick", REVERSE_OFF);
+   print_string(21,15,"press "ESC_REVERSE_ON"FIRE"ESC_REVERSE_OFF" to start", REVERSE_OFF);
+   #else
    print_string(14,13,
       "    Keys: "
       ESC_REVERSE_ON" I "ESC_REVERSE_OFF" "
@@ -64,6 +72,7 @@ void introScreen() {
       ESC_REVERSE_ON" SPACE "ESC_REVERSE_OFF"     "
    , REVERSE_OFF);
    print_string(21,15,"press "ESC_REVERSE_ON" RETURN "ESC_REVERSE_OFF" to start", REVERSE_OFF);
+   #endif
 
    // wait for key released
    while(test_key(SCANCODE_RETN));

@@ -1,6 +1,8 @@
 #include "types.h"
 #include "keyboard.h"
 
+#define COUNTER_MAX 2000    // the speed counter at level 0
+
 #define SCREEN_WIDTH   64
 #define SCREEN_HEIGHT  16
 #define SCREEN_ADDRESS 0xCC00
