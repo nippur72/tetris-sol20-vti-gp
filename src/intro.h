@@ -61,7 +61,7 @@ void introScreen() {
 
    #ifdef ALTAIR8800
    print_string(23,13,"Move: use joystick", REVERSE_OFF);
-   print_string(21,15,"press "ESC_REVERSE_ON"FIRE"ESC_REVERSE_OFF" to start", REVERSE_OFF);
+   print_string(22,15,"press "ESC_REVERSE_ON"FIRE"ESC_REVERSE_OFF" to start", REVERSE_OFF);
    #else
    print_string(14,13,
       "    Keys: "

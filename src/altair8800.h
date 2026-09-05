@@ -3,9 +3,9 @@
 // input: Cromemco D+7A board + JS-1 joystick, no keyboard
 //
 // D+7A I/O ports used by the JS-1:
-//   0x18  buttons D0-D3 (pressed = bit set): D0 = rotate, D1 = drop
+//   0x18  buttons D0-D3 (active low: pressed = bit clear): D0 = rotate, D1 = drop
 //   0x19  joystick X axis, two's complement (0 = center)
-//   0x1A  joystick Y axis, two's complement (0 = center, Y- = down)
+//   0x1A  joystick Y axis, two's complement (0 = center, inverted: Y+ = down)
 
 #include "types.h"
 #include "keyboard.h"
@@ -84,27 +84,27 @@ INLINE signed char read_axis_y() {
 
 // start/restart test used by intro screen and game over: the DROP button
 byte test_key(byte key) {
-   return (read_buttons() & JS_BIT_DROP) ? 1 : 0;
+   return (read_buttons() & JS_BIT_DROP) ? 0 : 1;
 }
 
 // converts the joystick state into a KEY_* code
-// buttons first, then the axes: X+ = right, Y- = down, Y+ = up = rotate
+// buttons active low, then the axes: X+ = right, Y+ = down (inverted), Y- = up = rotate
 byte read_joystick() {
    byte b;
    signed char x, y;
 
    b = read_buttons();
 
-        if(b & JS_BIT_DROP)   return KEY_DROP;
-   else if(b & JS_BIT_ROTATE) return KEY_ROTATE;
+        if(!(b & JS_BIT_DROP))   return KEY_DROP;
+   else if(!(b & JS_BIT_ROTATE)) return KEY_ROTATE;
 
    x = read_axis_x();
    y = read_axis_y();
 
         if(x >  JS_AXIS_THRESHOLD) return KEY_RIGHT;
    else if(x < -JS_AXIS_THRESHOLD) return KEY_LEFT;
-   else if(y < -JS_AXIS_THRESHOLD) return KEY_DOWN;
-   else if(y >  JS_AXIS_THRESHOLD) return KEY_ROTATE;   // "up" is an alias for rotate
+   else if(y >  JS_AXIS_THRESHOLD) return KEY_DOWN;
+   else if(y < -JS_AXIS_THRESHOLD) return KEY_ROTATE;   // "up" is an alias for rotate
    else return 0;
 }
 
