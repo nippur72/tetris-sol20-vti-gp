@@ -49,6 +49,14 @@
 
 #define SCANCODE_RETN 0x0d          // dummy value: intro/game over read the joystick
 
+// one-time VDM-1 video card initialization
+INLINE void init_video() {
+   __asm
+   xor a
+   out (0xC8),a
+   __endasm;
+}
+
 byte test_key(byte key);
 byte player_input();
 

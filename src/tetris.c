@@ -322,7 +322,11 @@ void main() {
    #ifdef SOL20
    init_video();
    #endif
-   
+
+   #ifdef ALTAIR8800
+   init_video();
+   #endif
+
    while(1) {
       introScreen();
       initGame();
